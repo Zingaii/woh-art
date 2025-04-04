@@ -50,10 +50,14 @@
     }
 
     nav img {
+  height: 60px;
       height: 40px;
     }
 
     .search input {
+  width: 280px;
+  border: 1px solid white;
+  color: #ffffff;
       padding: 10px 20px;
       border-radius: 20px;
       border: none;
@@ -65,7 +69,7 @@
     }
 
     .hero {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 40px auto;
       background: linear-gradient(to right, #000000d0 30%, transparent), url('images/TłoMainScreen.png') center/cover no-repeat;
       border-top-left-radius: 32px;
@@ -80,8 +84,8 @@
     .hero img.plane {
       position: absolute;
       right: -60px;
-      top: -40px;
-      height: 150%;
+      top: -80px;
+      height: 180%;
       z-index: 1;
     }
 
@@ -105,6 +109,8 @@
     }
 
     .hero button {
+  left: 0;
+  transform: translateX(20%);
       margin-top: 30px;
       background-color: #f35c7a;
       color: white;
@@ -119,6 +125,8 @@
     }
 
     h2 {
+  text-align: left;
+  padding-left: 60px;
       text-align: center;
       margin: 50px 0 20px;
       font-size: 28px;
@@ -126,11 +134,12 @@
     }
 
     .cards {
+  margin-top: 20px;
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: auto;
     }
 
@@ -151,6 +160,8 @@
     }
 
     .card-button span {
+  font-size: 24px;
+  transition: transform 0.2s ease;
       position: absolute;
       bottom: 14px;
       left: 20px;
@@ -165,9 +176,27 @@
       position: relative;
       display: inline-block;
     }
-  </style>
+  
+.card-button {
+  transition: transform 0.2s ease;
+}
+.card-button:hover {
+  transform: scale(1.03);
+}
+    
+.hero {
+  clip-path: path('M0,0 H1400 V300 Q1200,350 0,400 Z');
+}
+
+</style>
 </head>
 <body>
+  <script>
+    if (sessionStorage.getItem("auth") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+  <div class="bg-overlay"></div>
   <div class="bg-overlay"></div>
   <nav>
     <img src="images/Logo.png" alt="Logo">
