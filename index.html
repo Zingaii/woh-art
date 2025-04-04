@@ -14,54 +14,49 @@
       background-image: url('images/Background.png');
       background-size: cover;
       background-position: center;
-      padding: 40px 160px 100px;
+      padding: 40px 140px 120px;
       color: white;
     }
 
     nav {
-  gap: 60px;
-  flex-wrap: wrap;
-  justify-content: space-between;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       margin-bottom: 30px;
+      gap: 30px;
     }
 
     nav img {
-      height: 80px;
+      height: 72px;
     }
 
     nav ul {
       display: flex;
-      gap: 32px;
+      gap: 48px;
       list-style: none;
       font-weight: 600;
-    }
-
-    .search {
-      display: flex;
-      align-items: center;
+      flex-grow: 1;
+      justify-content: center;
     }
 
     .search input {
-      padding: 8px 18px;
+      padding: 10px 20px;
       border-radius: 20px;
       border: 1px solid white;
       background: rgba(255, 255, 255, 0.1);
       color: white;
       font-style: italic;
-      width: 280px;
+      font-weight: 300;
+      width: 300px;
     }
 
     .hero {
       position: relative;
-      background: linear-gradient(to right, rgba(28,28,28,0.7), rgba(28,28,28,0) 60%), url('images/TłoMainScreen.png') center/cover no-repeat;
+      background: linear-gradient(to right, rgba(28,28,28,0.6), rgba(28,28,28,0) 50%), url('images/TłoMainScreen.png') center/cover no-repeat;
       padding: 60px;
       border-radius: 24px;
       clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
-      margin-bottom: 40px;
-      overflow: hidden;
+      margin-bottom: 60px;
     }
 
     .hero h1 {
@@ -85,14 +80,19 @@
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
+      display: block;
+    }
+
+    .plane-wrapper {
+      position: relative;
     }
 
     .plane {
       position: absolute;
-      top: 0;
-      right: 0;
-      height: 80%;
-      z-index: 10;
+      top: -60px;
+      right: -60px;
+      height: 60%;
+      z-index: 15;
       pointer-events: none;
     }
 
@@ -103,11 +103,9 @@
     }
 
     .cards {
-  justify-content: center;
-  gap: 32px;
       display: flex;
       justify-content: center;
-      gap: 24px;
+      gap: 32px;
       flex-wrap: wrap;
     }
 
@@ -116,10 +114,7 @@
       border-radius: 20px;
       overflow: hidden;
       width: 200px;
-      height: 260px;
-      flex: 1;
-      min-width: 140px;
-      max-width: 180px;
+      height: 280px;
       cursor: pointer;
       transition: transform 0.3s ease;
     }
@@ -136,46 +131,17 @@
 
     .card span {
       position: absolute;
-      bottom: 12px;
-      left: 12px;
+      bottom: 14px;
+      left: 14px;
       color: white;
-      font-size: 24px;
+      font-size: 22px;
       font-style: italic;
       font-weight: 600;
-      text-shadow: 0 0 6px rgba(0,0,0,0.6);
+      text-shadow: 0 0 6px rgba(0,0,0,0.5);
     }
-  
-    .plane-wrapper {
-      position: relative;
-    }
-
-    .plane {
-      position: absolute;
-      top: -40px;
-      right: -40px;
-      height: 80%;
-      z-index: 10;
-      pointer-events: none;
-    }
-    
-    .plane-wrapper {
-      position: relative;
-      height: 0;
-    }
-
-    .plane {
-      position: absolute;
-      top: -40px;
-      right: -40px;
-      height: 80%;
-      z-index: 10;
-      pointer-events: none;
-    }
-    </style>
+  </style>
 </head>
 <body>
-  
-
   <nav>
     <img src="images/Logo.png" alt="Logo" />
     <ul>
@@ -190,15 +156,14 @@
     </div>
   </nav>
 
-  
-<div class="plane-wrapper">
-  <img src="images/PlaneMainScreen.png" class="plane" />
-</div>
-<section class="hero">
-    <h1>WOH ART</h1>
-    <p>Hi! Sooo you need art hm? Yeah we have it here. You can find default ones, you can ask me for custom ones, or maybe you're just looking for some renders or old graphics? We also have it here. Feel free to take some!</p>
-    <button>I’m ordering</button>
-  </section>
+  <div class="plane-wrapper">
+    <section class="hero">
+      <h1>WOH ART</h1>
+      <p>Hi! Sooo you need art hm? Yeah we have it here. You can find default ones, you can ask me for custom ones, or maybe you're just looking for some renders or old graphics? We also have it here. Feel free to take some!</p>
+      <button>I’m ordering</button>
+    </section>
+    <img src="images/PlaneMainScreen.png" class="plane" />
+  </div>
 
   <h2>Looking for something?</h2>
   <div class="cards">
