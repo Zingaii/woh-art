@@ -157,10 +157,24 @@
       z-index: 10;
       pointer-events: none;
     }
+    
+    .plane-wrapper {
+      position: relative;
+      height: 0;
+    }
+
+    .plane {
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      height: 80%;
+      z-index: 10;
+      pointer-events: none;
+    }
     </style>
 </head>
 <body>
-  <div class="plane-wrapper"><img src="images/PlaneMainScreen.png" class="plane" /></div>
+  
 
   <nav>
     <img src="images/Logo.png" alt="Logo" />
@@ -176,7 +190,11 @@
     </div>
   </nav>
 
-  <section class="hero">
+  
+<div class="plane-wrapper">
+  <img src="images/PlaneMainScreen.png" class="plane" />
+</div>
+<section class="hero">
     <h1>WOH ART</h1>
     <p>Hi! Sooo you need art hm? Yeah we have it here. You can find default ones, you can ask me for custom ones, or maybe you're just looking for some renders or old graphics? We also have it here. Feel free to take some!</p>
     <button>I’m ordering</button>
