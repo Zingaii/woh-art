@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOH ART</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #1e1e2f, #2f2f42);
+      color: white;
+      padding: 0 20px 60px;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      flex-wrap: wrap;
+    }
+    nav img {
+      width: 150px;
+    }
+    nav ul {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    nav ul li {
+      position: relative;
+      font-weight: 600;
+      cursor: pointer;
+      color: #e0e0e0;
+    }
+    nav ul li:hover { color: white; }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 28px;
+      left: 0;
+      background: #2f2f42;
+      padding: 10px;
+      border-radius: 10px;
+      flex-direction: column;
+      z-index: 10;
+    }
+    .dropdown a {
+      color: white;
+      text-decoration: none;
+      padding: 5px 10px;
+    }
+    .dropdown a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+    }
+    .has-dropdown:hover .dropdown {
+      display: flex;
+    }
+    .search input {
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: none;
+      font-size: 14px;
+    }
+    .hero {
+      background: url('https://i.imgur.com/WzRkTeW.jpeg') center/cover no-repeat;
+      border-radius: 20px;
+      padding: 60px;
+      margin: 30px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 300px;
+      position: relative;
+    }
+    .hero-content {
+      z-index: 1;
+      max-width: 50%;
+    }
+    .hero h1 {
+      font-size: 64px;
+      font-weight: 800;
+    }
+    .hero p {
+      margin-top: 16px;
+      font-size: 18px;
+      color: #cccccc;
+    }
+    .hero button {
+      margin-top: 24px;
+      background-color: #ec3e6d;
+      color: white;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    h2 {
+      margin: 40px 0 20px;
+      font-size: 28px;
+      font-weight: 800;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background-color: #191926;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .card h3 {
+      position: absolute;
+      bottom: 10px;
+      left: 12px;
+      color: white;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 18px;
+      text-shadow: 0 0 6px rgba(0,0,0,0.8);
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  if (sessionStorage.getItem("auth") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
+
+  <nav>
+    <img src="https://i.imgur.com/X3Q73Ro.png" alt="Logo">
+    <ul>
+      <li class="has-dropdown">Already done
+        <div class="dropdown">
+          <a href="old-ones.html">Old Ones</a>
+          <a href="champs.html">Champs</a>
+          <a href="default-events.html">Default Events</a>
+        </div>
+      </li>
+      <li><a href="loading-screens.html" style="color: inherit; text-decoration: none;">Loading screens</a></li>
+      <li><a href="renders.html" style="color: inherit; text-decoration: none;">Renders</a></li>
+      <li><a href="templates.html" style="color: inherit; text-decoration: none;">Templates</a></li>
+      <li><a href="form.html" style="color: inherit; font-weight: bold; text-decoration: none;">I NEED NEW</a></li>
+    </ul>
+    <div class="search">
+      <input type="text" placeholder="I know what I'm looking for...">
+    </div>
+  </nav>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>WOH ART</h1>
+      <p>Hi! Sooo you need art hm? Yeah we have it here. You can find default ones, you can ask me for custom ones, or maybe you're just looking for some renders or old graphics? We also have it here. Feel free to take some!</p>
+      <button onclick="location.href='form.html'">I’m ordering</button>
+    </div>
+  </section>
+  <h2>Looking for something?</h2>
+  <div class="cards">
+    <div class="card" onclick="location.href='champs.html'"><img src="https://i.imgur.com/sTczb8k.jpeg" alt="Champs"><h3>Champs</h3></div>
+    <div class="card" onclick="location.href='default-events.html'"><img src="https://i.imgur.com/8PHHogj.jpeg" alt="Default Events"><h3>Default Events</h3></div>
+    <div class="card" onclick="location.href='loading-screens.html'"><img src="https://i.imgur.com/zNR77Sl.jpeg" alt="Loading Screen"><h3>Loading Screen</h3></div>
+    <div class="card" onclick="location.href='old-ones.html'"><img src="https://i.imgur.com/UzvDAr2.jpeg" alt="Old Ones"><h3>Old Ones</h3></div>
+    <div class="card" onclick="location.href='renders.html'"><img src="https://i.imgur.com/MsCS0Ez.jpeg" alt="Renders & Elements"><h3>Renders & Elements</h3></div>
+    <div class="card" onclick="location.href='templates.html'"><img src="https://i.imgur.com/lf5TyMv.jpeg" alt="Templates"><h3>Templates</h3></div>
+  </div>
+</body>
+</html>
