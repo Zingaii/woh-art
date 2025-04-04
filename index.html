@@ -136,9 +136,21 @@
       font-size: 18px;
       text-shadow: 0 0 6px rgba(0,0,0,0.8);
     }
-  </style>
+  
+.background-blur {
+  background: url('images/Background.png') center/cover no-repeat;
+  opacity: 0.15;
+  filter: blur(4px);
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+</style>
 </head>
-<body style="background: url('images/Background.png') no-repeat center center fixed; background-size: cover;">
+<body style="background-color:#1C1C1C; position: relative;"
+ style="background: url('images/Background.png') no-repeat center center fixed; background-size: cover;">
 <script>
   if (sessionStorage.getItem("auth") !== "true") {
     window.location.href = "login.html";
