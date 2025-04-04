@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>WOH ART – SVG Hero with Background</title>
+  <title>WOH ART – Working Inline SVG Hero</title>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -62,21 +62,25 @@
       width: 320px;
     }
 
-    .hero-mask-container {
+    .svg-hero {
       position: relative;
       width: 100%;
       max-width: 1100px;
-      height: 500px;
+      height: 526px;
       margin: 40px auto 60px;
-      -webkit-mask-image: url('images/hero-shape.svg');
-      mask-image: url('images/hero-shape.svg');
-      -webkit-mask-size: cover;
-      mask-size: cover;
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: no-repeat;
-      -webkit-mask-position: center;
-      mask-position: center;
-      background: url('images/TłoMainScreen.png') center/cover no-repeat;
+    }
+
+    .svg-hero svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .svg-hero image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .hero-content {
@@ -188,7 +192,15 @@
   </nav>
 
   <div class="plane-wrapper">
-    <div class="hero-mask-container">
+    <div class="svg-hero">
+      <svg viewBox="0 0 1112 526" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <defs>
+          <clipPath id="heroClip">
+            <path d="M40 0H1072C1093.09 0 1111 17.91 1111 40V486C1111 507.09 1093.09 525 1072 525H743.904C717.593 525 708.537 503.324 682.268 493.28C656.116 483.276 626.423 483.696 597 483.5H40C17.91 483.5 0 465.59 0 443.5V40C0 17.91 17.91 0 40 0Z"/>
+          </clipPath>
+        </defs>
+        <image href="images/TłoMainScreen.png" width="1112" height="526" clip-path="url(#heroClip)" preserveAspectRatio="xMidYMid slice"/>
+      </svg>
       <div class="hero-content">
         <h1>WOH ART</h1>
         <p>Hi! Sooo you need art hm? Yeah we have it here. You can find default ones, you can ask me for custom ones, or maybe you're just looking for some renders or old graphics? We also have it here. Feel free to take some!</p>
