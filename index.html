@@ -14,11 +14,13 @@
       background-image: url('images/Background.png');
       background-size: cover;
       background-position: center;
-      padding: 40px 180px 140px;
+      padding: 40px 270px 140px;
       color: white;
     }
 
     nav {
+  position: relative;
+  z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -27,17 +29,19 @@
     }
 
     nav img {
-      height: 88px;
+      height: 108px;
     }
 
     nav ul {
+  flex-grow: 1;
+  justify-content: space-between;
   flex-grow: 1;
       display: flex;
       gap: 48px;
       list-style: none;
       font-weight: 600;
       flex-grow: 1;
-      justify-content: center;
+      justify-content: space-between;
     }
 
     nav ul li {
@@ -62,7 +66,7 @@
     }
 
     nav ul li:hover .dropdown {
-      display: block;
+      align-self: center;
   margin-left: auto;
   margin-right: auto;
     }
@@ -79,6 +83,10 @@
     }
 
     .hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
       position: relative;
       background: linear-gradient(to right, rgba(28,28,28,0.85), rgba(28,28,28,0) 60%), url('images/TłoMainScreen.png') center/cover no-repeat;
       padding: 100px 60px;
@@ -108,7 +116,7 @@
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
-      display: block;
+      align-self: center;
   margin-left: auto;
   margin-right: auto;
     }
@@ -120,8 +128,8 @@
     .plane {
       position: absolute;
       top: -80px;
-      right: 80px;
-      height: 90%;
+      right: 60px;
+      height: 150%;
       z-index: 15;
       pointer-events: none;
     }
@@ -134,7 +142,7 @@
 
     .cards {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       gap: 36px;
       flex-wrap: wrap;
     }
@@ -164,7 +172,7 @@
       bottom: 14px;
       left: 14px;
       color: white;
-      font-size: 30px;
+      font-size: 34px;
       font-style: italic;
       font-weight: 600;
       text-shadow: 0 0 6px rgba(0,0,0,0.5);
