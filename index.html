@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>WOH ART – SVG Hero</title>
+  <title>WOH ART – SVG Hero with Background</title>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -62,46 +62,46 @@
       width: 320px;
     }
 
-    .svg-hero-container {
+    .hero-mask-container {
       position: relative;
       width: 100%;
       max-width: 1100px;
       height: 500px;
       margin: 40px auto 60px;
+      -webkit-mask-image: url('images/hero-shape.svg');
+      mask-image: url('images/hero-shape.svg');
+      -webkit-mask-size: cover;
+      mask-size: cover;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      mask-position: center;
+      background: url('images/TłoMainScreen.png') center/cover no-repeat;
     }
 
-    .svg-hero-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-
-    .svg-hero-content {
+    .hero-content {
       position: relative;
       z-index: 1;
+      height: 100%;
       padding: 60px;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
       justify-content: center;
     }
 
-    .svg-hero-content h1 {
+    .hero-content h1 {
       font-size: 64px;
       font-weight: 800;
       max-width: 700px;
     }
 
-    .svg-hero-content p {
+    .hero-content p {
       margin-top: 16px;
       font-size: 18px;
       max-width: 600px;
     }
 
-    .svg-hero-content button {
+    .hero-content button {
       margin-top: 30px;
       background-color: #f35c7a;
       color: white;
@@ -188,14 +188,8 @@
   </nav>
 
   <div class="plane-wrapper">
-    <div class="svg-hero-container">
-      <svg class="svg-hero-bg" viewBox="0 0 1112 526" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path 
-          d="M40 0H1072C1093.09 0 1111 17.91 1111 40V486C1111 507.09 1093.09 525 1072 525H743.904C717.593 525 708.537 503.324 682.268 493.28C656.116 483.276 626.423 483.696 597 483.5H40C17.91 483.5 0 465.59 0 443.5V40C0 17.91 17.91 0 40 0Z" 
-          fill="white"
-        />
-      </svg>
-      <div class="svg-hero-content">
+    <div class="hero-mask-container">
+      <div class="hero-content">
         <h1>WOH ART</h1>
         <p>Hi! Sooo you need art hm? Yeah we have it here. You can find default ones, you can ask me for custom ones, or maybe you're just looking for some renders or old graphics? We also have it here. Feel free to take some!</p>
         <button>I’m ordering</button>
