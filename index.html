@@ -22,6 +22,7 @@
       clip-path: polygon(0 0, 100% 0, 100% 85%, 90% 92%, 60% 100%, 0 95%);
       border-radius: 20px;
       overflow: hidden;
+      z-index: 1;
     }
 
     .plane {
@@ -29,7 +30,7 @@
       top: -80px;
       right: -80px;
       height: 130%;
-      z-index: 20;
+      z-index: 100;
       pointer-events: none;
     }
 
@@ -67,11 +68,12 @@
     }
   </script>
 
+  <img src="images/PlaneMainScreen.png" class="plane" />
+
   <section class="hero">
     <h1>WOH ART</h1>
     <p>Hi! Sooo you need art hm? Yeah we have it here. You can find default ones, you can ask me for custom ones, or maybe you're just looking for some renders or old graphics? We also have it here. Feel free to take some!</p>
     <button>I’m ordering</button>
-    <img src="images/PlaneMainScreen.png" class="plane" />
   </section>
 </body>
 </html>
