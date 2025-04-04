@@ -138,7 +138,12 @@
     }
   </style>
 </head>
-<body>
+<body style="background: url('images/Background.png') no-repeat center center fixed; background-size: cover;">
+<script>
+  if (sessionStorage.getItem("auth") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
 <script>
   if (sessionStorage.getItem("auth") !== "true") {
     window.location.href = "login.html";
@@ -164,6 +169,7 @@
     </div>
   </nav>
   <section class="hero">
+    <img src="images/PlaneMainScreen.png" alt="Plane" style="position:absolute; top:0; right:0; height:100%; max-height:300px; z-index:1;">
     <div class="hero-content">
       <h1>WOH ART</h1>
       <p>Hi! Sooo you need art hm? Yeah we have it here. You can find default ones, you can ask me for custom ones, or maybe you're just looking for some renders or old graphics? We also have it here. Feel free to take some!</p>
