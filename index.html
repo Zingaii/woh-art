@@ -31,6 +31,7 @@
     }
 
     nav ul {
+  flex-grow: 1;
       display: flex;
       gap: 48px;
       list-style: none;
@@ -45,6 +46,8 @@
     }
 
     nav ul li:hover {
+  transform: scale(1.08);
+  transition: transform 0.2s ease;
       text-decoration: underline;
     }
 
@@ -60,6 +63,8 @@
 
     nav ul li:hover .dropdown {
       display: block;
+  margin-left: auto;
+  margin-right: auto;
     }
 
     .search input {
@@ -76,7 +81,7 @@
     .hero {
       position: relative;
       background: linear-gradient(to right, rgba(28,28,28,0.85), rgba(28,28,28,0) 60%), url('images/TłoMainScreen.png') center/cover no-repeat;
-      padding: 60px;
+      padding: 100px 60px;
       border-radius: 24px;
       clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
       margin-bottom: 60px;
@@ -104,6 +109,8 @@
       font-weight: bold;
       cursor: pointer;
       display: block;
+  margin-left: auto;
+  margin-right: auto;
     }
 
     .plane-wrapper {
@@ -113,8 +120,8 @@
     .plane {
       position: absolute;
       top: -80px;
-      right: 120px;
-      height: 120%;
+      right: 80px;
+      height: 90%;
       z-index: 15;
       pointer-events: none;
     }
@@ -122,7 +129,7 @@
     h2 {
       font-size: 28px;
       font-weight: 800;
-      margin: 40px 0 20px;
+      margin: 60px 0 40px;
     }
 
     .cards {
@@ -157,7 +164,7 @@
       bottom: 14px;
       left: 14px;
       color: white;
-      font-size: 26px;
+      font-size: 30px;
       font-style: italic;
       font-weight: 600;
       text-shadow: 0 0 6px rgba(0,0,0,0.5);
