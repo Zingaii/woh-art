@@ -1,223 +1,195 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <title>WOH ART – Working Inline SVG Hero</title>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;800&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <title>Lista zakupów</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
-      font-family: 'Jost', sans-serif;
-      background-color: #1C1C1C;
-      background-image: url('images/Background.png');
-      background-size: cover;
-      background-position: center;
-      padding: 40px 270px 140px;
-      color: white;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f9f9f9;
+      color: #222;
+      margin: 0;
+      padding: 0 0 100px 0;
     }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 30px;
-      position: relative;
-      z-index: 1000;
+    .container {
+      max-width: 540px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px #0001;
+      padding: 28px 18px 28px 18px;
     }
-
-    nav img {
-      height: 108px;
+    h1 {
+      font-size: 1.7em;
+      text-align: center;
+      margin-bottom: 18px;
     }
-
-    nav ul {
-      display: flex;
-      gap: 48px;
-      list-style: none;
-      font-weight: 600;
-      flex-grow: 1;
-      justify-content: space-between;
-    }
-
-    nav ul li {
-      position: relative;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    nav ul li:hover {
-      transform: scale(1.08);
-      text-decoration: underline;
-    }
-
-    .search input {
-      padding: 10px 20px;
-      border-radius: 20px;
-      border: 1px solid white;
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      font-style: italic;
-      font-weight: 300;
-      width: 320px;
-    }
-
-    .svg-hero {
-      position: relative;
-      width: 100%;
-      max-width: 1100px;
-      height: 526px;
-      margin: 40px auto 60px;
-    }
-
-    .svg-hero svg {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-
-    .svg-hero image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      padding: 60px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .hero-content h1 {
-      font-size: 64px;
-      font-weight: 800;
-      max-width: 700px;
-    }
-
-    .hero-content p {
-      margin-top: 16px;
-      font-size: 18px;
-      max-width: 600px;
-    }
-
-    .hero-content button {
-      margin-top: 30px;
-      background-color: #f35c7a;
-      color: white;
-      padding: 14px 32px;
-      border: none;
-      border-radius: 16px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      align-self: center;
-    }
-
-    .plane-wrapper {
-      position: relative;
-    }
-
-    .plane {
-      position: absolute;
-      top: -60px;
-      right: 60px;
-      height: 150%;
-      z-index: 15;
-      pointer-events: none;
-    }
-
     h2 {
-      font-size: 28px;
-      font-weight: 800;
-      margin: 60px 0 40px;
+      font-size: 1.15em;
+      margin-top: 28px;
+      margin-bottom: 8px;
+      color: #5a5a5a;
+      border-left: 4px solid #92c7a3;
+      padding-left: 10px;
     }
-
-    .cards {
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    li {
       display: flex;
-      justify-content: space-between;
-      gap: 36px;
-      flex-wrap: wrap;
+      align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 1em;
+      transition: background .15s;
     }
-
-    .card {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      width: 220px;
-      height: 300px;
+    li:last-child { border-bottom: none; }
+    input[type="checkbox"] {
+      margin-right: 14px;
+      width: 1.2em;
+      height: 1.2em;
+      accent-color: #92c7a3;
       cursor: pointer;
-      transition: transform 0.3s ease;
     }
-
-    .card:hover {
-      transform: scale(1.05);
+    .checked {
+      color: #aaa;
+      text-decoration: line-through;
+      background: #f2f8f3;
     }
-
-    .card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .card span {
-      position: absolute;
-      bottom: 14px;
-      left: 14px;
-      color: white;
-      font-size: 34px;
-      font-style: italic;
-      font-weight: 600;
-      text-shadow: 0 0 6px rgba(0,0,0,0.5);
+    @media (max-width: 650px) {
+      .container { max-width: 99vw; padding: 12px 2vw; }
+      h1 { font-size: 1.25em; }
+      h2 { font-size: 1em; }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <img src="images/Logo.png" alt="Logo" />
+  <div class="container">
+    <h1>Lista zakupów</h1>
+
+    <h2>Śniadanie 1: Roasted Strawberry Whipped Ricotta Toast</h2>
     <ul>
-      <li>Already done ▽</li>
-      <li>Loading screens</li>
-      <li>Renders</li>
-      <li>Templates</li>
-      <li style="font-weight: 800;">I NEED NEW</li>
+      <li><input type="checkbox"> Ricotta – 250 g</li>
+      <li><input type="checkbox"> Truskawki – 250 g</li>
+      <li><input type="checkbox"> Chleb tostowy/pieczywo – 1 bochenek lub 4–6 kromek</li>
+      <li><input type="checkbox"> Miód/syrop klonowy – mały słoiczek</li>
+      <li><input type="checkbox"> Masło</li>
+      <li><input type="checkbox"> (opcjonalnie) Wanilia, mięta, cytryna</li>
     </ul>
-    <div class="search">
-      <input type="text" placeholder="I know what I'm looking for..." />
-    </div>
-  </nav>
 
-  <div class="plane-wrapper">
-    <div class="svg-hero">
-      <svg viewBox="0 0 1112 526" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <defs>
-          <clipPath id="heroClip">
-            <path d="M40 0H1072C1093.09 0 1111 17.91 1111 40V486C1111 507.09 1093.09 525 1072 525H743.904C717.593 525 708.537 503.324 682.268 493.28C656.116 483.276 626.423 483.696 597 483.5H40C17.91 483.5 0 465.59 0 443.5V40C0 17.91 17.91 0 40 0Z"/>
-          </clipPath>
-        </defs>
-        <image href="images/TłoMainScreen.png" width="1112" height="526" clip-path="url(#heroClip)" preserveAspectRatio="xMidYMid slice"/>
-      </svg>
-      <div class="hero-content">
-        <h1>WOH ART</h1>
-        <p>Hi! Sooo you need art hm? Yeah we have it here. You can find default ones, you can ask me for custom ones, or maybe you're just looking for some renders or old graphics? We also have it here. Feel free to take some!</p>
-        <button>I’m ordering</button>
-      </div>
-    </div>
-    <img src="images/PlaneMainScreen.png" class="plane" />
-  </div>
+    <h2>Śniadanie 2: Wrapy śniadaniowe</h2>
+    <ul>
+      <li><input type="checkbox"> Tortille pszenne – 4 szt.</li>
+      <li><input type="checkbox"> Jajka – 4 szt.</li>
+      <li><input type="checkbox"> Awokado – 1 szt.</li>
+      <li><input type="checkbox"> Szynka lub łosoś – 100–150 g</li>
+      <li><input type="checkbox"> Ser żółty/mozzarella – 100 g</li>
+      <li><input type="checkbox"> Pomidor – 1 szt.</li>
+      <li><input type="checkbox"> Sałata/rukola – 1 opak.</li>
+      <li><input type="checkbox"> Jogurt naturalny – 1 mały kubeczek</li>
+      <li><input type="checkbox"> Czosnek – 1 ząbek</li>
+      <li><input type="checkbox"> Sól, pieprz, szczypiorek</li>
+    </ul>
 
-  <h2>Looking for something?</h2>
-  <div class="cards">
-    <div class="card"><img src="images/Champs.png" /><span>Champs</span></div>
-    <div class="card"><img src="images/DefaultEvents.png" /><span>Default Events</span></div>
-    <div class="card"><img src="images/LoadingScreens.png" /><span>Loading Screen</span></div>
-    <div class="card"><img src="images/OldOnes.png" /><span>Old Ones</span></div>
-    <div class="card"><img src="images/RendersAndElements.png" /><span>Renders & Elements</span></div>
-    <div class="card"><img src="images/Templates.png" /><span>Templates</span></div>
+    <h2>Obiad (na 2 dni): Bucatini ze szpinakiem i stekiem</h2>
+    <ul>
+      <li><input type="checkbox"> Bucatini/makaron – 400 g</li>
+      <li><input type="checkbox"> Szpinak świeży – 200 g</li>
+      <li><input type="checkbox"> Pieczarki – 400 g</li>
+      <li><input type="checkbox"> Czosnek – 4 ząbki</li>
+      <li><input type="checkbox"> Śmietanka 30% – 300 ml</li>
+      <li><input type="checkbox"> Gorgonzola – 150 g</li>
+      <li><input type="checkbox"> Parmezan – 50 g</li>
+      <li><input type="checkbox"> Cytryna – 1 szt.</li>
+      <li><input type="checkbox"> Oliwa z oliwek</li>
+      <li><input type="checkbox"> Sól, pieprz, chili</li>
+      <li><input type="checkbox"> Stek wołowy – 500 g</li>
+      <li><input type="checkbox"> Masło – 1 kostka</li>
+      <li><input type="checkbox"> Tymianek świeży – kilka gałązek</li>
+    </ul>
+
+    <h2>Kolacja 1: Deska grecka z koftami</h2>
+    <ul>
+      <li><input type="checkbox"> Bagietka – 1 szt.</li>
+      <li><input type="checkbox"> Jogurt grecki – 200 g</li>
+      <li><input type="checkbox"> Ogórek – 1 szt.</li>
+      <li><input type="checkbox"> Czosnek – 2 ząbki</li>
+      <li><input type="checkbox"> Koperek/mięta – pęczek</li>
+      <li><input type="checkbox"> Ser feta/bałkański – 150 g</li>
+      <li><input type="checkbox"> Pomidorki koktajlowe – 250 g</li>
+      <li><input type="checkbox"> Marchewka – 1 szt.</li>
+      <li><input type="checkbox"> Rzodkiewki – kilka szt.</li>
+      <li><input type="checkbox"> Twaróg półtłusty – 100 g</li>
+      <li><input type="checkbox"> Szczypiorek – kilka gałązek</li>
+      <li><input type="checkbox"> Orzechy włoskie/migdały – mała garść</li>
+      <!-- Kofty -->
+      <li><input type="checkbox"> Mięso mielone (wołowe/indyk) – 200 g</li>
+      <li><input type="checkbox"> Cebula – 1/2 małej</li>
+      <li><input type="checkbox"> Natka pietruszki/koperek/mięta – 2 łyżki</li>
+      <li><input type="checkbox"> Kumin, papryka, oregano</li>
+      <li><input type="checkbox"> Oliwa z oliwek</li>
+      <li><input type="checkbox"> Sok z cytryny</li>
+      <li><input type="checkbox"> (opcjonalnie) Bułka tarta – 1 łyżka</li>
+    </ul>
+
+    <h2>Kolacja 2: Langosze z serem, sosem czosnkowym, szczypiorkiem i kawiorem</h2>
+    <ul>
+      <li><input type="checkbox"> Mąka pszenna – 250 g</li>
+      <li><input type="checkbox"> Drożdże świeże – 15 g (lub 5 g suszonych)</li>
+      <li><input type="checkbox"> Mleko – 120 ml</li>
+      <li><input type="checkbox"> Woda – 80 ml</li>
+      <li><input type="checkbox"> Cukier – 1 łyżeczka</li>
+      <li><input type="checkbox"> Sól – 1/2 łyżeczki</li>
+      <li><input type="checkbox"> Olej do smażenia – 500 ml</li>
+      <li><input type="checkbox"> Ser żółty – 100 g</li>
+      <li><input type="checkbox"> Jogurt grecki/śmietana – 150 g</li>
+      <li><input type="checkbox"> Czosnek – 2 ząbki</li>
+      <li><input type="checkbox"> Szczypiorek – 1 pęczek</li>
+      <li><input type="checkbox"> Kawior – 1 mały słoiczek</li>
+      <li><input type="checkbox"> Sól, pieprz</li>
+    </ul>
+
+    <h2>Przekąski i napoje</h2>
+    <ul>
+      <li><input type="checkbox"> Czekolada mleczna – 1 tabliczka</li>
+      <li><input type="checkbox"> Orzechy niesolone – 1 paczka</li>
+      <li><input type="checkbox"> Banany – 4 szt.</li>
+      <li><input type="checkbox"> Herbata – 1 opakowanie</li>
+      <li><input type="checkbox"> Woda mineralna – min. 2–3 litry</li>
+    </ul>
+
+    <h2>Drobiazgi i rzeczy organizacyjne</h2>
+    <ul>
+      <li><input type="checkbox"> Oliwa z oliwek</li>
+      <li><input type="checkbox"> Masło</li>
+      <li><input type="checkbox"> Przyprawy: sól, pieprz, kumin, papryka, oregano, tymianek</li>
+      <li><input type="checkbox"> Ręcznik papierowy</li>
+      <li><input type="checkbox"> Papier do pieczenia</li>
+      <li><input type="checkbox"> Serwetki</li>
+    </ul>
   </div>
+  <script>
+    // LocalStorage save/check (so odhaczenia nie giną po odświeżeniu)
+    document.querySelectorAll('input[type="checkbox"]').forEach(function(box, i){
+      const key = 'shoppingListCheck_' + i;
+      // Wczytaj stan z localStorage
+      if (localStorage.getItem(key) === '1') {
+        box.checked = true;
+        box.parentElement.classList.add('checked');
+      }
+      box.addEventListener('change', function(){
+        if (box.checked) {
+          localStorage.setItem(key, '1');
+          box.parentElement.classList.add('checked');
+        } else {
+          localStorage.setItem(key, '0');
+          box.parentElement.classList.remove('checked');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
